@@ -15,66 +15,56 @@
 
     /* ─────────────────────
        オレンジ色の帯（常に全幅）
-       ＋ 上端との余白を追加
+       ＋ 上端との余白
     ───────────────────── */
     .brandbar {
       width: 100%;
       background: #FD5000;
-      margin-top: 40px; /* ← 帯高さの約70%相当の余白 */
+      margin-top: 40px;
     }
 
     /* ロゴを包むコンテナ */
     .brandbar__inner {
       margin: 0 auto;
-      padding: 2px 12px; /* ← 上下差を最小化 */
+      padding: 2px 12px;
+      display: flex;
+      justify-content: center;
     }
 
-    /* ロゴ画像 */
+    /* ─────────────────────
+       ロゴ画像（基本）
+    ───────────────────── */
     .brandbar__logo {
       display: block;
       width: 100%;
       height: auto;
+      max-width: 768px; /* PCでは常にこれが上限 */
     }
 
     /* ─────────────────────
-       スマホ縦（縦長）
-       → ロゴは画面幅いっぱい
+       スマホ縦
+       → フル幅を許可
     ───────────────────── */
     @media (max-width: 767px) and (orientation: portrait) {
-      .brandbar__inner {
+      .brandbar__logo {
         max-width: none;
       }
     }
 
     /* ─────────────────────
-       横長（スマホ横・PC）
-       → ロゴは最大幅で止める
+       iPhone横向きだけを正確に狙う
+       → 高さが低く、かつ幅も狭い場合
     ───────────────────── */
-    @media (orientation: landscape) {
-      .brandbar__inner {
-        max-width: 960px;
-      }
-    }
-
-    /* ─────────────────────
-       iPhone横向き 最終詰め
-       → 高さ基準でロゴを小さく
-    ───────────────────── */
-    @media (max-height: 430px) and (orientation: landscape) {
+    @media (max-width: 900px) and (max-height: 430px) and (orientation: landscape) {
 
       .brandbar {
-        margin-top: 28px; /* 横向きでは少し詰める */
-      }
-
-      .brandbar__inner {
-        max-width: 720px;
-        padding: 2px 12px;
+        margin-top: 28px;
       }
 
       .brandbar__logo {
         width: auto;
+        max-width: none;
         max-height: 56px;
-        margin: 0 auto;
       }
     }
   </style>
