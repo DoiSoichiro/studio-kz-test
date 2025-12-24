@@ -21,15 +21,16 @@
       background: #FD5000;
     }
 
-    /* ロゴを包むコンテナ */
+    /* ロゴを包むコンテナ
+       ※ 上下差を極力出さない設定 */
     .brandbar__inner {
       margin: 0 auto;
-      padding: 20px 12px; /* ← ロゴより少しだけ太い帯になる */
+      padding: 2px 12px;   /* ← 上下2px／左右12px */
     }
 
     /* ロゴ画像 */
     .brandbar__logo {
-      display: block;
+      display: block;     /* 画像下の余白対策 */
       width: 100%;
       height: auto;
     }
@@ -50,7 +51,7 @@
     ───────────────────── */
     @media (orientation: landscape) {
       .brandbar__inner {
-        max-width: 960px; /* ← 好みで 860 / 1100 などに調整可 */
+        max-width: 960px; /* 好みで 860 / 1100 などに変更可 */
       }
     }
   </style>
