@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>StudioKZ ロゴ確認</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    .brandbar{
+      width: 100%;
+      background: #FD5000;
+    }
+
+    .brandbar__inner{
+      margin: 0 auto;
+      padding: 16px 12px;
+    }
+
+    .brandbar__logo{
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    @media (orientation: portrait){
+      .brandbar__inner{
+        max-width: none;
+      }
+    }
+
+    @media (orientation: landscape){
+      .brandbar__inner{
+        max-width: 1100px;
+      }
+    }
+
+    body{
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="brandbar">
+    <div class="brandbar__inner">
+      <img class="brandbar__logo" src="logo.svg" alt="StudioKZ">
+    </div>
+  </header>
+</body>
+</html>
