@@ -14,23 +14,24 @@
     }
 
     /* ─────────────────────
-       オレンジの帯（常に全幅）
+       オレンジ色の帯（常に全幅）
+       ＋ 上端との余白を追加
     ───────────────────── */
     .brandbar {
       width: 100%;
       background: #FD5000;
+      margin-top: 40px; /* ← 帯高さの約70%相当の余白 */
     }
 
-    /* ロゴを包むコンテナ
-       ※ 上下差を極力出さない設定 */
+    /* ロゴを包むコンテナ */
     .brandbar__inner {
       margin: 0 auto;
-      padding: 2px 12px;   /* ← 上下2px／左右12px */
+      padding: 2px 12px; /* ← 上下差を最小化 */
     }
 
     /* ロゴ画像 */
     .brandbar__logo {
-      display: block;     /* 画像下の余白対策 */
+      display: block;
       width: 100%;
       height: auto;
     }
@@ -47,11 +48,33 @@
 
     /* ─────────────────────
        横長（スマホ横・PC）
-       → ロゴは最大幅で止めて左右に余白
+       → ロゴは最大幅で止める
     ───────────────────── */
     @media (orientation: landscape) {
       .brandbar__inner {
-        max-width: 960px; /* 好みで 860 / 1100 などに変更可 */
+        max-width: 960px;
+      }
+    }
+
+    /* ─────────────────────
+       iPhone横向き 最終詰め
+       → 高さ基準でロゴを小さく
+    ───────────────────── */
+    @media (max-height: 430px) and (orientation: landscape) {
+
+      .brandbar {
+        margin-top: 28px; /* 横向きでは少し詰める */
+      }
+
+      .brandbar__inner {
+        max-width: 720px;
+        padding: 2px 12px;
+      }
+
+      .brandbar__logo {
+        width: auto;
+        max-height: 56px;
+        margin: 0 auto;
       }
     }
   </style>
