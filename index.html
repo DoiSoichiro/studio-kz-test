@@ -2,49 +2,67 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>StudioKZ ロゴ確認</title>
+  <title>ロゴ表示テスト</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
-    .brandbar{
+    /* ─────────────────────
+       基本リセット
+    ───────────────────── */
+    body {
+      margin: 0;
+    }
+
+    /* ─────────────────────
+       オレンジの帯（常に全幅）
+    ───────────────────── */
+    .brandbar {
       width: 100%;
       background: #FD5000;
     }
 
-    .brandbar__inner{
+    /* ロゴを包むコンテナ */
+    .brandbar__inner {
       margin: 0 auto;
-      padding: 16px 12px;
+      padding: 20px 12px; /* ← ロゴより少しだけ太い帯になる */
     }
 
-    .brandbar__logo{
+    /* ロゴ画像 */
+    .brandbar__logo {
       display: block;
       width: 100%;
       height: auto;
     }
 
-    @media (orientation: portrait){
-      .brandbar__inner{
+    /* ─────────────────────
+       スマホ縦（縦長）
+       → ロゴは画面幅いっぱい
+    ───────────────────── */
+    @media (max-width: 767px) and (orientation: portrait) {
+      .brandbar__inner {
         max-width: none;
       }
     }
 
-    @media (orientation: landscape){
-      .brandbar__inner{
-        max-width: 1100px;
+    /* ─────────────────────
+       横長（スマホ横・PC）
+       → ロゴは最大幅で止めて左右に余白
+    ───────────────────── */
+    @media (orientation: landscape) {
+      .brandbar__inner {
+        max-width: 960px; /* ← 好みで 860 / 1100 などに調整可 */
       }
-    }
-
-    body{
-      margin: 0;
     }
   </style>
 </head>
 
 <body>
+
   <header class="brandbar">
     <div class="brandbar__inner">
-      <img class="brandbar__logo" src="logo.svg" alt="StudioKZ">
+      <img class="brandbar__logo" src="logo.svg" alt="ロゴ">
     </div>
   </header>
+
 </body>
 </html>
